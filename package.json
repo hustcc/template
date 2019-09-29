@@ -1,0 +1,60 @@
+{
+  "name": "template",
+  "version": "0.1.0",
+  "description": "repository template for me",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "clean": "rimraf -rf lib",
+    "lint": "eslint src/**/* __tests__/**/*",
+    "lint-staged": "lint-staged",
+    "test": "jest",
+    "prepublishOnly": "npm run clean && npm run build",
+    "start": "tsc -w",
+    "ci": "npm run lint && npm run test"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@commitlint/cli": "^8.2.0",
+    "@types/jest": "^24.0.18",
+    "@typescript-eslint/eslint-plugin": "^2.3.1",
+    "@typescript-eslint/parser": "^2.3.1",
+    "eslint": "^6.4.0",
+    "eslint-config-prettier": "^6.3.0",
+    "husky": "^3.0.5",
+    "jest": "^24.9.0",
+    "jest-electron": "^0.1.7",
+    "lint-staged": "^9.3.0",
+    "prettier": "^1.18.2",
+    "rimraf": "^3.0.0",
+    "ts-jest": "^24.1.0",
+    "typescript": "^3.6.3"
+  },
+  "jest": {
+    "runner": "jest-electron/runner",
+    "testEnvironment": "jest-electron/environment",
+    "preset": "ts-jest",
+    "collectCoverage": true,
+    "testRegex": "(/__tests__/.*\\.(test|spec))\\.ts$",
+    "collectCoverageFrom": [
+      "src/**/*.ts"
+    ]
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "eslint",
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  }
+}
