@@ -12,7 +12,9 @@
     "esModuleInterop": true,
     "pretty": true,
     "lib": ["dom", "esnext"],
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "sourceRoot": "src",
+    "baseUrl": "src"
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules"]

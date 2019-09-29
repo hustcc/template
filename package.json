@@ -8,14 +8,14 @@
     "lib"
   ],
   "scripts": {
-    "build": "tsc",
     "clean": "rimraf -rf lib",
     "lint": "eslint src/**/*",
     "lint-staged": "lint-staged",
     "test": "jest",
-    "prepublishOnly": "npm run clean && npm run build",
     "start": "tsc -w",
-    "ci": "npm run lint && npm run test"
+    "ci": "npm run lint && npm run test",
+    "build": "npm run clean && tsc",
+    "prepublishOnly": "npm run build"
   },
   "dependencies": {},
   "devDependencies": {
