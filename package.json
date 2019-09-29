@@ -10,7 +10,7 @@
   "scripts": {
     "build": "tsc",
     "clean": "rimraf -rf lib",
-    "lint": "eslint src/**/* __tests__/**/*",
+    "lint": "eslint src/**/*",
     "lint-staged": "lint-staged",
     "test": "jest",
     "prepublishOnly": "npm run clean && npm run build",
