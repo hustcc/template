@@ -25,6 +25,9 @@
     "coveralls": "cat ./coverage/lcov.info | coveralls"
   },
   "dependencies": {},
+  "keywords": [
+    "template"
+  ],
   "devDependencies": {
     "@commitlint/cli": "^8.2.0",
     "@size-limit/preset-small-lib": "^2.1.6",
