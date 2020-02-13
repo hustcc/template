@@ -1,46 +1,37 @@
 {
   "name": "template",
-  "version": "0.1.0",
-  "description": "repository template for me",
+  "officialName": "template",
+  "version": "1.0.0",
+  "description": "template repo for hustcc",
   "license": "MIT",
   "main": "lib/index.js",
+  "module": "esm/index.js",
+  "browser": "dist/template.min.js",
+  "types": "lib/index.d.ts",
   "files": [
     "lib",
     "esm",
     "dist"
   ],
   "scripts": {
-    "clean": "rimraf -rf lib",
-    "lint": "eslint src/**/* __tests__/**/*",
+    "clean": "rimraf -rf lib esm dist",
     "lint-staged": "lint-staged",
-    "size": "size-limit",
     "test": "jest",
-    "ci": "npm run lint && npm run test && npm run size && lint-md .",
-    "start": "tsc -w",
-    "build:umd": "rimraf ./dist && rollup -c && npm run size",
+    "build:umd": "rimraf ./dist && rollup -c",
     "build:cjs": "rimraf ./lib && tsc --module commonjs --outDir lib",
     "build:esm": "rimraf ./esm && tsc --module ESNext --outDir esm",
     "build": "npm run build:cjs && npm run build:esm && npm run build:umd",
-    "prepublishOnly": "npm run build",
-    "coveralls": "cat ./coverage/lcov.info | coveralls"
+    "prepublishOnly": "npm run build"
   },
-  "dependencies": {},
   "keywords": [
     "template"
   ],
   "devDependencies": {
     "@commitlint/cli": "^8.2.0",
-    "@size-limit/preset-small-lib": "^2.1.6",
     "@types/jest": "^24.0.18",
-    "@typescript-eslint/eslint-plugin": "^2.3.1",
-    "@typescript-eslint/parser": "^2.3.1",
-    "coveralls": "^3.0.6",
-    "eslint": "^6.4.0",
-    "eslint-config-prettier": "^6.3.0",
     "husky": "^3.0.5",
     "jest": "^24.9.0",
     "jest-electron": "^0.1.7",
-    "lint-md-cli": "^0.1.1",
     "lint-staged": "^9.3.0",
     "prettier": "^1.18.2",
     "rimraf": "^3.0.0",
@@ -48,8 +39,8 @@
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-typescript": "^1.0.1",
     "rollup-plugin-uglify": "^6.0.3",
-    "size-limit": "^2.1.6",
     "ts-jest": "^24.1.0",
+    "ts-node": "^8.6.2",
     "typescript": "^3.6.3"
   },
   "jest": {
@@ -64,7 +55,6 @@
   },
   "lint-staged": {
     "*.{ts,tsx}": [
-      "eslint --fix",
       "prettier --write",
       "git add"
     ]
@@ -75,10 +65,15 @@
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
-  "size-limit": [
-    {
-      "limit": "500 B",
-      "path": "dist/template.min.js"
-    }
-  ]
+  "author": {
+    "name": "hustcc",
+    "url": "https://atool.vip/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hustcc/template"
+  },
+  "bugs": {
+    "url": "https://github.com/hustcc/template/issues"
+  }
 }

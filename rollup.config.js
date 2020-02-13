@@ -6,7 +6,7 @@ module.exports = [{
   input: 'src/index.ts',
   output: {
     file: 'dist/template.min.js',
-    name: 'template',
+    name: 'tplv',
     format: 'umd',
     sourcemap: true,
   },
