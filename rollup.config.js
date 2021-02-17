@@ -8,7 +8,7 @@ module.exports = [{
     file: 'dist/template.min.js',
     name: 'tplv',
     format: 'umd',
-    sourcemap: true,
+    sourcemap: false,
   },
   plugins: [
     resolve(),
